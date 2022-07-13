@@ -1,0 +1,4 @@
+bin
+obj
+*.csproj
+net6.0
