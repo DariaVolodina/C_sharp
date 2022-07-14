@@ -1,21 +1,4 @@
 ﻿/*задача с гирьками
-int a = 1;
-int b = 2; 
-int c = 6;
-int d = 8;
-int e = 4;
-
-int max = a;
-
-if(b > max) max = b;
-if(c > max) max = c;
-if(d > max) max = d;
-if(e > max) max = e;
-
-Console.Write("max = ");
-Console.WriteLine(max);
-
-
 Увлекательная задача про точки:
 Алгоритм: 
 1. Определить три точки
@@ -28,7 +11,7 @@ Console.WriteLine(max);
 8. Шаги 3 - 7 повторить 9, 28, 31 раз
 */ 
 
-Console.Clear();
+//Console.Clear();
 //Console.SetCursorPosition(10, 4);
 //Console.WriteLine("+");
 
@@ -57,21 +40,23 @@ while(count < 1000)
         x = (x + xa) / 2;
         y = (y + ya) / 2;
     }
+
     if(what == 1)
     {
         x = (x + xb) / 2;
         y = (y + yb) / 2;
     }
+
     if(what == 2)
     {
         x = (x + xc) / 2;
         y = (y + yc) / 2;
     }
+
     Console.SetCursorPosition(x, y);
     Console.WriteLine("+");
     count++;
 }
-
 
 
 
