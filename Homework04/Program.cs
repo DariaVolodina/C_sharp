@@ -3,7 +3,7 @@
 
 3, 5 -> 243 (3⁵)
 2, 4 -> 16
-
+*/
 
 int numInDegree (int a, int b)
 {
@@ -25,12 +25,13 @@ int degree = Convert.ToInt32(Console.ReadLine());
 int result = numInDegree(num, degree);
 Console.WriteLine($"Число {num} в степени {degree} равно {result}");
 
-
+/*
 Задача 27: Напишите программу, которая принимает на вход число и выдаёт сумму цифр в числе.
 
 452 -> 11
 82 -> 10
 9012 -> 12
+*/
 
 int SumOfDigits(int num)
 {
