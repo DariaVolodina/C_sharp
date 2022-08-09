@@ -129,7 +129,7 @@ Console.WriteLine($"Difference between minimum and maximum elements of the array
 
 
 /*
-//ДЛЯ ТИПА DOUBLE - ошибка в строке 137, где генерируется случайный
+//ДЛЯ ТИПА DOUBLE - ошибка в строке 138, где генерируется случайный
 
 double[] RealNumArray (int size, double minValue, double maxValue)
 {
