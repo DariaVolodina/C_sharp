@@ -117,23 +117,60 @@ int[] array1(int size, int minValue, int maxValue)
     return newArray;
 }  
 
-void ShowArray(int[] array) 
+int Count (int[] array, int min, int max)
 {
+    int count = 0;
     for(int i = 0; i < array.Length; i++)
-        Console.Write(array[i] + " ");
-
-    Console.WriteLine();
+    {
+        if(array[i] <= max && array[i] >= min) count++;
+    }
+    return count;
 }
 
-
 Console.Write("Input minimum value of the array: ");
-int i = Convert.ToInt32(Console.ReadLine());
+int min = Convert.ToInt32(Console.ReadLine());
 
 Console.Write("Input maximum value of the array: ");
-int j = Convert.ToInt32(Console.ReadLine());
+int max = Convert.ToInt32(Console.ReadLine());
 
-int [] mass = array1 (8, i, j);
+int [] mass = array1 (12, min, max);
 ShowArray(mass);
+Console.Write ($"Number of elements from 10 t0 90 is {Count(mass, 10, 99)}");
 
 
-//
+//Найдите произведение пар чисел в одномерном массиве. 
+//Парой считается первый и последний элемент, второй и предпоследний и т.д.
+//Результат запишите в новом массиве
+
+int[] NewArray (int [] array)
+{
+    if(array.Length % 2 == 0) 
+    {
+        int[] result = new int [array.Length / 2];
+        for (int i = 0; i < result.Length; i++)
+        {
+            result[i] = array[i] * array[array.Length - 1 - i]; 
+        }
+    }
+    else 
+    {
+        for (int i = 0; i < result.Length; i++)
+        {
+            result[i] = array[i] * array[array.Length - 1 - i];
+        }
+        result[result.Length - 1] = array[result.Length - 1];
+        return result;
+   }
+
+}
+
+Console.Write("Input size of array: ");
+int size = Convert.ToInt32(Console.ReadLine());
+Console.Write("Input size min Value of ellement: ");
+int min = Convert.ToInt32(Console.ReadLine());
+Console.Write("Input size max Value of ellenent: ");
+int max = Convert.ToInt32(Console.ReadLine());
+
+int[] array = CreateRandomArray(size, min, max);
+ShowArray(array);
+Console.WriteLine(NewArray(array));

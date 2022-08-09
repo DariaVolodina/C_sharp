@@ -58,16 +58,16 @@ void ShowArray (int[] array)
 
     Console.WriteLine(); //отступ 
 }
-
-void ShowIndex (int[] array) // хочу подписать индексы под значениями (от 0 до array.Length - 1)
+/*
+int SumOfElements135 (int[] array)
 {
-    int x = 0; 
-    while (x < array.Length)
-        Console.Write(x + " ");
-        x++;
-    Console.WriteLine();    
+    int sum = 0;
+    for(int i = 0; i < array.Length; i++)
+        if (i % 2 == 1) sum = sum + array[i];
+    
+    return sum;
 }
-
+*/
 Console.Write("Input size of array: ");
 int size = Convert.ToInt32(Console.ReadLine());
 Console.Write("Input min element of the array ");
@@ -75,13 +75,12 @@ int min = Convert.ToInt32(Console.ReadLine());
 Console.Write("Input max element of the array: ");
 int max = Convert.ToInt32(Console.ReadLine());
 
-int[] array123 = CreateRandomArray(size, min, max);
-ShowArray(array123);
-ShowIndex(array123);
+int[] array012 = CreateRandomArray(size, min, max);
+ShowArray(array012);
+//Console.WriteLine($"Cумма элементов, стоящих на нечётных позициях в данном массиве, равна {SumOfElements135(array012)}");
+
 
 
 
 //Задача 38: Задайте массив вещественных чисел. Найдите разницу между максимальным и минимальным элементов массива.
 //[3 7 22 2 78] -> 76
-
-int[] array
