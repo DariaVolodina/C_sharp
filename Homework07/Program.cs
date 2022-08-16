@@ -36,7 +36,7 @@ int max = Convert.ToInt32(Console.ReadLine());
 
 double[,] array = CreateArray(m, n, min, max);
 Show2dArray(array);
-*/
+
 
 //Задача 50. Напишите программу, которая на вход принимает позиции элемента в двумерном массиве, 
 //и возвращает значение этого элемента или же указание, что такого элемента нет.
@@ -86,7 +86,7 @@ if( (r < m) && (c < n) )
     Console.Write($"Значение элемента {r} строки {c} колонки: {array1[r, c]}");
 
 else Console.Write("Tакого элемента в массиве нет");
-
+*/
 
 //Задача 52. Задайте двумерный массив из целых чисел. Найдите среднее арифметическое элементов в каждом столбце.
 //Например, задан массив:
@@ -94,7 +94,7 @@ else Console.Write("Tакого элемента в массиве нет");
 //5 9 2 3
 //8 4 2 4
 //Среднее арифметическое каждого столбца: 4,6; 5,6; 3,6; 3.
-/*
+
 int [,] Create2dArray (int rows, int columns, int minValue, int maxValue)
 {
     int [,] newArray = new int [rows, columns];
@@ -159,4 +159,3 @@ Show2dArray(array2d);
 
 int [] array1 = Average(array2d);
 ShowArray(array1);
-*/
