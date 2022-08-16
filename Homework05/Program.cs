@@ -82,7 +82,7 @@ Console.WriteLine($"Cумма элементов, стоящих на нечёт
 
 //Задача 38: Задайте массив вещественных чисел. Найдите разницу между максимальным и минимальным элементов массива.
 //[3 7 22 2 78] -> 76
-
+/*
 int [] RealNumArray (int size, int minValue, int maxValue)
 {
     int[] array = new int [size];
@@ -126,17 +126,16 @@ int [] array = RealNumArray (size, min, max);
 ShowArray(array);
 
 Console.WriteLine($"Difference between minimum and maximum elements of the array is {Difference(array)}");
+*/
 
 
-/*
 //ДЛЯ ТИПА DOUBLE - ошибка в строке 138, где генерируется случайный
 
-double[] RealNumArray (int size, double minValue, double maxValue)
+double[] RealNumArray (int size, int minValue, int maxValue)
 {
     double[] array = new double [size];
     for (int i = 0; i < array.Length; i++)
-        //array[i] = new Random().NextDouble();
-
+        array[i] = new Random().Next(minValue, maxValue + 1) + new Random().NextDouble();// !!!!!!!!!!!!!!!!!!!!!
     return array;
 }
 
@@ -165,14 +164,13 @@ Console.Write("Input size of array: ");
 int size = Convert.ToInt32(Console.ReadLine());
 
 Console.Write("Input min element of the array: ");
-double min = Convert.ToInt32(Console.ReadLine());
+int min = Convert.ToInt32(Console.ReadLine());
 
 Console.Write("Input max element of the array: ");
-double max = Convert.ToInt32(Console.ReadLine());
+int max = Convert.ToInt32(Console.ReadLine());
 
 double [] array = RealNumArray (size, min, max);
 ShowArray(array);
 
 Console.WriteLine($"Difference between minimum and maximum elements of the array is {Difference(array)}");
 
-*/
