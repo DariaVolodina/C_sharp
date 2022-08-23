@@ -71,7 +71,6 @@ Console.Write("Input number of columns: ");
 int n = Convert.ToInt32(Console.ReadLine());
 Console.Write("Input min possible value of element: ");
 int min = Convert.ToInt32(Console.ReadLine());
-Console.Write("Input max possible value of element: ");
 
 int[,] array = Create2dArray(m, n, min);
 Show2dArray (array);
