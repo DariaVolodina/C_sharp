@@ -94,16 +94,46 @@ int[,,] Create3dArray (int blocks, int rows, int columns, int minValue, int maxV
 {
     int[,,] newArray = new int [blocks, rows, columns];
     
-    for (int b = 0; b < newArray.GetLength(0); b++)
-        for (int i = 0; i < newArray.GetLength(1); i++)
-            for (int j = 0; j < newArray.GetLength(2); j++)
-                newArray [b, i, j] = new Random().Next(minValue, maxValue + 1);
-
-/* Для неповторяющихся чисел 
-
     for (int b = 0; b < newArray.GetLength(0) - 1; b++)
         for (int i = 0; i < newArray.GetLength(1) - 1; i++)
             for (int j = 0; j < newArray.GetLength(2) - 1; j++)
+            {
+                newArray [b, i, j] = new Random().Next(minValue, maxValue + 1);
+/*
+                newArray [b + 1, i, j] = new Random().Next(minValue, maxValue + 1);
+                while (newArray [b + 1, i, j] == newArray[b, i, j])
+                    newArray[b + 1, i, j] = new Random().Next(minValue, maxValue + 1);
+
+                newArray [b, i + 1, j] = new Random().Next(minValue, maxValue + 1);
+                while (newArray [b, i + 1, j] == newArray[b, i, j] || newArray[b, i + 1, j] == newArray[b + 1, i, j])
+                    newArray [b, i + 1, j] = new Random().Next(minValue, maxValue + 1);
+
+                newArray [b, i, j + 1] = new Random().Next(minValue, maxValue + 1);
+                while (newArray[b, i, j + 1] == newArray [b, i, j] || newArray[b, i, j + 1] == newArray[b + 1, i, j] || newArray[b, i, j + 1] == newArray[b, i + 1, j])
+                    newArray [b, i, j + 1] = new Random().Next(minValue, maxValue + 1);
+                
+                newArray [b + 1, i + 1, j] = new Random().Next(minValue, maxValue + 1);
+                while (newArray [b + 1, i + 1, j] == newArray[b, i, j] || newArray [b + 1, i + 1, j] == newArray[b + 1, i , j] || newArray [b + 1, i + 1, j] == newArray[b, i + 1, j] || newArray [b + 1, i + 1, j] == newArray[b, i, j + 1])
+                    newArray[b + 1, i + 1, j] = new Random().Next(minValue, maxValue + 1);
+
+                newArray [b, i + 1, j + 1] = new Random().Next(minValue, maxValue + 1);
+                while (newArray [b, i + 1, j + 1] == newArray[b, i, j] || newArray [b, i + 1, j + 1] == newArray[b + 1, i, j] || newArray [b, i + 1, j + 1] == newArray[b, i + 1, j] || newArray [b, i + 1, j + 1] == newArray[b, i, j+ 1] || newArray [b, i + 1, j + 1] == newArray [b + 1, i + 1, j])
+                    newArray [b, i + 1, j + 1] = new Random().Next(minValue, maxValue + 1);
+
+                newArray [b + 1, i, j + 1] = new Random().Next(minValue, maxValue + 1);
+                while (newArray[b + 1, i, j + 1] == newArray [b, i, j] || newArray[b + 1, i, j + 1] == newArray[b + 1, i, j] || newArray[b + 1, i, j + 1] == newArray[b, i + 1, j] || newArray[b + 1, i, j + 1] == newArray[b, i, j + 1] || newArray[b + 1, i, j + 1] == newArray[b, i + 1, j + 1] || newArray[b + 1, i, j + 1] == newArray[b + 1, i + 1, j])
+                    newArray [b, i, j + 1] = new Random().Next(minValue, maxValue + 1);
+
+                newArray [b + 1, i + 1, j + 1] = new Random().Next(minValue, maxValue + 1);
+                while (newArray[b + 1, i + 1, j + 1] == newArray [b, i, j] || newArray[b + 1, i + 1, j + 1] == newArray[b + 1, i, j] || newArray[b + 1, i + 1, j + 1] == newArray[b, i + 1, j] || newArray[b + 1, i + 1, j + 1] == newArray[b, i, j + 1] || newArray[b + 1, i + 1, j + 1] == newArray[b, i + 1, j + 1] || newArray[b + 1, i + 1, j + 1] == newArray[b + 1, i + 1, j] || newArray[b + 1, i + 1, j + 1] == newArray[b + 1, i, j + 1])
+                    newArray [b + 1, i + 1, j + 1] = new Random().Next(minValue, maxValue + 1);
+*/
+            }   
+    /* Для неповторяющихся чисел 
+
+    for (int b = 0; b < newArray.GetLength(0) + 1; b++)
+        for (int i = 0; i < newArray.GetLength(1) + 1; i++)
+            for (int j = 0; j < newArray.GetLength(2) + 1; j++)
                 newArray [b, i, j] = new Random().Next(minValue, maxValue + 1);
                 
                 
@@ -118,19 +148,7 @@ int[,,] Create3dArray (int blocks, int rows, int columns, int minValue, int maxV
                 if (newArray [b, i + 1, j] == newArray[b + 1, i, j]) 
                     newArray[b, i + 1, j] = new Random().Next(minValue, maxValue + 1);
                 
-VARIANT 2
-                newArray [b, i, j + 1] = new Random().Next(minValue, maxValue + 1);
-                while (newArray [b, i, j] != newArray[b, i, j + 1])
-                    newArray[b, i, j + 1] = new Random().Next(minValue, maxValue + 1);
-
-                newArray [b, i + 1, j] = new Random().Next(minValue, maxValue + 1);
-                while (newArray [b, i + 1, j] != newArray[b, i, j] && newArray[b, i + 1, j] != newArray[b + 1, i, j])
-                    newArray [b, i + 1, j] = new Random().Next(minValue, maxValue + 1);
-
-                newArray [b + 1, i, j] = new Random().Next(minValue, maxValue + 1);
-                while (newArray[b + 1, i, j] != newArray [b, i + 1, j] && newArray[b + 1, i, j] != newArray[b, i, j + 1] && newArray[b + 1, i, j] != newArray[b, i, j])
-                    newArray [b + 1, i, j] = new Random().Next(minValue, maxValue + 1);
-               */ 
+VARIANT 2*/            
 
     return newArray;
 }
@@ -158,5 +176,5 @@ int m = Convert.ToInt32(Console.ReadLine());
 Console.Write("Input number of columns: ");
 int n = Convert.ToInt32(Console.ReadLine());
 
-int[,,] array3d = Create3dArray(l, m, n, 10, 20); 
+int[,,] array3d = Create3dArray(l, m, n, 10, 40); 
 Show3dArray(array3d);
