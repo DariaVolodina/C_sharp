@@ -203,6 +203,55 @@ Show2dArray(array3);
 //12(0,0,0) 22(0,0,1)
 //45(1,0,0) 53(1,0,1)
 
+int[,,] Create3dArray (int blocks, int rows, int columns, int minValue, int maxValue)
+{
+    int[,,] newArray = new int [blocks, rows, columns];
+    
+    for (int b = 0; b < newArray.GetLength(0); b++)
+        for (int i = 0; i < newArray.GetLength(1); i++)
+            for (int j = 0; j < newArray.GetLength(2); j++)
+                {
+                    newArray [b, i, j] = new Random().Next(minValue, maxValue + 1);
+
+/*    НЕ ВЫШЛО с неповторяющимися числами (до этого пробовала десяток других способов - всё равно повторяющиеся встречались)
+                    int current = 0;
+                    if (newArray [b, i, j] != newArray [b + current, i, j] && newArray [b, i, j] != newArray [b, i+ current, j] && newArray [b, i, j] != newArray [b, i, j + current]) 
+                       current++;  
+
+                    else newArray [b, i, j] = new Random().Next(minValue, maxValue + 1);
+*/
+                }
+
+    return newArray;
+}
+
+
+void Show3dArray (int[,,] array)
+{
+    for (int b = 0; b < array.GetLength(0); b++)
+    {
+        for(int i = 0; i < array.GetLength(1); i++)
+        {
+            for (int j = 0; j < array.GetLength(2); j++)
+                Console.Write($"{array[b, i, j]}({b}, {i}, {j})  ");
+                
+            Console.WriteLine(); 
+        }    
+        Console.WriteLine();  
+    }
+    Console.WriteLine();
+}
+
+Console.Write("Input number of blocks: ");
+int l = Convert.ToInt32(Console.ReadLine());
+Console.Write("Input number of rows: ");
+int m = Convert.ToInt32(Console.ReadLine());
+Console.Write("Input number of columns: ");
+int n = Convert.ToInt32(Console.ReadLine());
+
+int[,,] array3d = Create3dArray(l, m, n, 10, 99); 
+Show3dArray(array3d);
+
 
 
 //Задача 62. Заполните спирально массив 4 на 4.
