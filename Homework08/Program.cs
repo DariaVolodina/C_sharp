@@ -65,7 +65,7 @@ Show2dArray (sortArray);
 //8 4 2 4
 //5 2 6 7
 //Программа считает сумму элементов в каждой строке и выдаёт номер строки с наименьшей суммой элементов: 1 строка
-
+/*
 int[,] Create2dArray (int rows, int columns, int minValue, int maxValue)
 {
     int[,] newArray = new int [rows, columns];
@@ -203,6 +203,39 @@ Show2dArray(array3);
 //12(0,0,0) 22(0,0,1)
 //45(1,0,0) 53(1,0,1)
 
+int[,,] Create3dArray(int rows, int columns, int depth, int min, int max)
+{
+    int[,,] array = new int[rows, columns, depth];
+    int count = 0, randomNum;                           // Добавил счетчик, увеличивающийся, если нет совпадений со сгенерированным рандомно числом
+                                                        // Также добавил перемменную, которой присваивается рандомное число. Если после проверки на повторения
+    for (int i = 0; i < rows; i++)                      // оказывается, что равного ей элемента нет, то её значение присваивается текущему элементу.
+        for (int j = 0; j < columns; j++)
+            for (int k = 0; k < depth; k++)
+            {
+                randomNum = new Random().Next(min, max + 1);
+
+                for (int ii = 0; ii < rows; ii++)
+                    for (int jj = 0; jj < columns; jj++)
+                        for (int kk = 0; kk < depth; kk++)
+                        {
+                            if (randomNum != array[ii, jj, kk])
+                                count++;
+                        }
+
+                if (count == rows * columns * depth)
+                    array[i, j, k] = randomNum;
+
+                else
+                {
+                    count = 0;
+                    k -= 1;
+                    continue;
+                }
+            }
+
+    return array;
+}
+/* 
 int[,,] Create3dArray (int blocks, int rows, int columns, int minValue, int maxValue)
 {
     int[,,] newArray = new int [blocks, rows, columns];
@@ -213,18 +246,18 @@ int[,,] Create3dArray (int blocks, int rows, int columns, int minValue, int maxV
                 {
                     newArray [b, i, j] = new Random().Next(minValue, maxValue + 1);
 
-/*    НЕ ВЫШЛО с неповторяющимися числами (до этого пробовала десяток других способов - всё равно повторяющиеся встречались)
+   НЕ ВЫШЛО с неповторяющимися числами (до этого пробовала десяток других способов - всё равно повторяющиеся встречались)
                     int current = 0;
                     if (newArray [b, i, j] != newArray [b + current, i, j] && newArray [b, i, j] != newArray [b, i+ current, j] && newArray [b, i, j] != newArray [b, i, j + current]) 
                        current++;  
 
                     else newArray [b, i, j] = new Random().Next(minValue, maxValue + 1);
-*/
+
                 }
 
     return newArray;
 }
-
+*/
 
 void Show3dArray (int[,,] array)
 {
@@ -260,7 +293,7 @@ Show3dArray(array3d);
 //12 13 14 5
 //11 16 15 6
 //10 9 8 7
-
+/*
 int[,] Create2dArray (int rows, int columns, int minValue)
 {
     int[,] newArray = new int [rows, columns];
@@ -312,3 +345,4 @@ int min = Convert.ToInt32(Console.ReadLine());
 
 int[,] array = Create2dArray(m, n, min);
 Show2dArray (array);
+*/
